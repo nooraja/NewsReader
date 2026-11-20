@@ -1,14 +1,35 @@
 # NewsReader
 
-NewsReader is a UIKit iPhone app for browsing NewsAPI categories, publishers, and articles. Search sources within a category or search articles from a selected publisher. Tap an article to read the publisher's page in the app.
+NewsReader is a UIKit iPhone app for browsing news sources and articles from NewsAPI.
 
-## Run in Xcode
+## What to install
 
-1. Open `NewsReader.xcodeproj` in Xcode 27.2 or later.
-2. Select an iPhone simulator and the **Offline Demo** scheme, then press **⌘R**. The demo includes enough sources and articles to exercise search and endless scrolling.
-3. For live data, duplicate the **NewsReader** scheme, leave the duplicate unshared, and set `NEWSAPI_KEY` under **Edit Scheme → Run → Arguments → Environment Variables**. Run the local scheme.
+- Install Xcode on a Mac. The project was tested with Xcode 27.2. [Download Xcode](https://developer.apple.com/xcode/)
+- Install an iOS simulator runtime from **Xcode → Settings → Components**. The app targets iOS 17 and later. [Install an iOS simulator runtime](https://developer.apple.com/documentation/xcode/downloading-and-installing-additional-xcode-components)
 
-The deployment target is iOS 17. The app has no package dependencies. Keep your NewsAPI key in the unshared scheme. NewsAPI's Developer plan is for development and testing. [NewsAPI pricing](https://newsapi.org/pricing)
+The repository includes `NewsReader.xcodeproj`. Build and run it directly in Xcode with no third-party dependencies. Install XcodeGen only if you need to regenerate the project after adding or moving Swift files. Run `xcodegen generate` from the repository root.
+
+## Run the offline demo
+
+1. Download the repository using **Code → Download ZIP** on GitHub and extract it, or clone it locally.
+2. Open `NewsReader.xcodeproj` in Xcode.
+3. Select the **Offline Demo** scheme and an iPhone simulator in the toolbar.
+4. Press **⌘R**. The app opens on **Categories**. The demo uses sample data and runs without an API key.
+
+## Run with live news
+
+1. Get a personal API key from NewsAPI. [Register for a NewsAPI key](https://newsapi.org/register)
+2. In Xcode, open **Product → Scheme → Manage Schemes**. Duplicate **NewsReader** as **NewsReader Local**, then clear **Shared** for the copy.
+3. Select **NewsReader Local** and open **Product → Scheme → Edit Scheme**.
+4. In **Run → Arguments → Environment Variables**, add `NEWSAPI_KEY` with your key as its value. Keep the scheme local to your Mac.
+5. Select an iPhone simulator and press **⌘R**. Open a category to load live sources. NewsAPI's Developer plan is for development and testing. [NewsAPI pricing](https://newsapi.org/pricing)
+
+## Use the app
+
+1. Tap a category such as **General** to see its news sources.
+2. Use **Search sources** to find a publisher, or scroll down to load more sources. In the demo, try **General Desk 30**.
+3. Tap a source to see its articles. Use **Search articles** or scroll down to load more. In the demo, try **Field Notes**.
+4. Tap an article to open its detail in the in-app web view.
 
 ## Architecture
 
@@ -18,6 +39,4 @@ Sources arrive as a single response. The app filters the whole category and reve
 
 ## Tests
 
-Choose **NewsReader** and press **⌘U**. Unit tests cover requests, decoding, errors, search, and pagination. UI tests exercise the category-to-article flow with offline data. Tests do not require an API key.
-
-The generated Xcode project is included. After adding or moving Swift files, regenerate it locally with `xcodegen generate`.
+Choose **NewsReader** and an iPhone simulator, then press **⌘U**. Unit tests cover requests, decoding, errors, search, and pagination. UI tests exercise the category-to-article flow with offline data. Tests run without an API key.
