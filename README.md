@@ -18,7 +18,9 @@ The repository includes `NewsReader.xcodeproj`. Build and run it directly in Xco
 
 ## Run with live news
 
-1. Get a personal API key from NewsAPI. [Register for a NewsAPI key](https://newsapi.org/register)
+Each user must use their own NewsAPI key to run the app with live news.
+
+1. Register for your own key or use a key from your existing NewsAPI account. [Register for a NewsAPI key](https://newsapi.org/register)
 2. In Xcode, open **Product → Scheme → Manage Schemes**. Duplicate **NewsReader** as **NewsReader Local**, then clear **Shared** for the copy.
 3. Select **NewsReader Local** and open **Product → Scheme → Edit Scheme**.
 4. In **Run → Arguments → Environment Variables**, add `NEWSAPI_KEY` with your key as its value. Keep the scheme local to your Mac.
