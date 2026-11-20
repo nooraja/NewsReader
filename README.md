@@ -2,6 +2,12 @@
 
 NewsReader is a UIKit iPhone app for browsing news sources and articles from NewsAPI.
 
+## Screenshots
+
+| Categories | News sources | Articles | Article detail |
+| --- | --- | --- | --- |
+| <img src="docs/screenshots/categories.png" alt="News category list" width="170"> | <img src="docs/screenshots/sources.png" alt="Technology news sources and source search" width="170"> | <img src="docs/screenshots/articles.png" alt="Articles from a selected source and article search" width="170"> | <img src="docs/screenshots/article-detail.png" alt="Publisher article in the in-app web view" width="170"> |
+
 ## What to install
 
 - Install Xcode on a Mac. The project was tested with Xcode 27.2. [Download Xcode](https://developer.apple.com/xcode/)
